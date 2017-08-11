@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+audio_parser.py
+config.py
+main.py
+SoundCloud.py
+.idea
