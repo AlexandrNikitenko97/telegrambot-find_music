@@ -1,4 +1,4 @@
-from Download import handle
+from get_song import find_song
 from config import bot, help_message, start_message
 
 
@@ -18,10 +18,10 @@ def command_help(message):
 @bot.message_handler(content_types=["text"])
 def send_audio(message):
     try:
-        handle(message.from_user.id, message.text)
+        find_song(message.text, message.from_user.id)
     except Exception:
-        bot.send_message(message.from_user.id, "SORRY!\nSomething went wrong 😕\n(Size > 20 mg - Telegram limit)")
-
+        bot.send_message(message.from_user.id, "SORRY!\nSomething went wrong 😕\n(Song was delete / Big size of song)")
+        raise
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
